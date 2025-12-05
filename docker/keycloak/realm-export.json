@@ -1,0 +1,65 @@
+{
+  "realm": "mediflow",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "bruteForceProtected": true,
+  "roles": {
+    "realm": [
+      {"name": "admin", "description": "Full warehouse + dashboard admin"},
+      {"name": "analyst", "description": "Region-scoped read of warehouse + marts"},
+      {"name": "viewer", "description": "Marts/dashboards read-only"}
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "superset",
+      "secret": "mediflow-superset-secret-123",
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": ["https://localhost/oauth-authorized/keycloak"],
+      "webOrigins": ["https://localhost"],
+      "defaultClientScopes": ["openid", "profile", "email", "roles"],
+      "protocolMappers": [
+        {
+          "name": "realm-roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-realm-role-mapper",
+          "config": {
+            "claim.name": "realm_roles",
+            "jsonType.label": "String",
+            "multivalued": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true"
+          }
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "ops-admin",
+      "enabled": true,
+      "email": "ops-admin@mediflow.local",
+      "credentials": [{"type": "password", "value": "change-on-first-login", "temporary": true}],
+      "realmRoles": ["admin"]
+    },
+    {
+      "username": "er-coordinator",
+      "enabled": true,
+      "email": "er-coordinator@mediflow.local",
+      "credentials": [{"type": "password", "value": "change-on-first-login", "temporary": true}],
+      "realmRoles": ["analyst"]
+    },
+    {
+      "username": "health-planner",
+      "enabled": true,
+      "email": "health-planner@mediflow.local",
+      "credentials": [{"type": "password", "value": "change-on-first-login", "temporary": true}],
+      "realmRoles": ["viewer"]
+    }
+  ]
+}
