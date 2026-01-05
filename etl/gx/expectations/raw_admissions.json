@@ -1,0 +1,16 @@
+{
+  "expectation_suite_name": "raw_admissions",
+  "data_asset_type": null,
+  "expectations": [
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "source_record_id"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_unique", "kwargs": {"column": "source_record_id"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "admit_ts"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "hospital_id"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_in_set", "kwargs": {"column": "department_id", "value_set": ["ED", "ICU", "MED", "SUR", "PED"]}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_match_regex", "kwargs": {"column": "icd10_code", "regex": "^[A-Z][0-9]{2}"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_match_regex", "kwargs": {"column": "patient_pseudo_id", "regex": "^[0-9a-f]{64}$"}, "meta": {"notes": "HMAC-SHA256 hex digest; raw MRNs must never appear here"}},
+    {"expectation_type": "expect_column_values_to_be_between", "kwargs": {"column": "los_hours", "min_value": 0, "max_value": 8760, "mostly": 0.999}, "meta": {}}
+  ],
+  "ge_cloud_id": null,
+  "meta": {"great_expectations_version": "0.18.16"}
+}

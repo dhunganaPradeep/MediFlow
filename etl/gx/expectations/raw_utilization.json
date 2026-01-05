@@ -1,0 +1,15 @@
+{
+  "expectation_suite_name": "raw_utilization",
+  "data_asset_type": null,
+  "expectations": [
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "snapshot_ts"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "hospital_id"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_in_set", "kwargs": {"column": "department_id", "value_set": ["ED", "ICU", "MED", "SUR", "PED"]}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_between", "kwargs": {"column": "beds_total", "min_value": 1, "max_value": 500}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_between", "kwargs": {"column": "beds_occupied", "min_value": 0, "max_value": 500}, "meta": {}},
+    {"expectation_type": "expect_column_pair_values_a_to_be_greater_than_b", "kwargs": {"column_A": "beds_total", "column_B": "beds_occupied", "or_equal": true, "mostly": 0.99}, "meta": {"notes": "physical bound; staging clips violations, this catches systemic breakage"}},
+    {"expectation_type": "expect_column_values_to_be_between", "kwargs": {"column": "staff_on_shift", "min_value": 0, "max_value": 200}, "meta": {}}
+  ],
+  "ge_cloud_id": null,
+  "meta": {"great_expectations_version": "0.18.16"}
+}

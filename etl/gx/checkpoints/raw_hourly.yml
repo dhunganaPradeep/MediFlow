@@ -1,0 +1,32 @@
+name: raw_hourly
+config_version: 1.0
+class_name: Checkpoint
+run_name_template: raw-hourly-%Y%m%d-%H
+validations:
+  - batch_request:
+      datasource_name: mediflow_pg
+      data_connector_name: default_inferred_data_connector_name
+      data_asset_name: raw.admissions
+    expectation_suite_name: raw_admissions
+  - batch_request:
+      datasource_name: mediflow_pg
+      data_connector_name: default_inferred_data_connector_name
+      data_asset_name: raw.er_visits
+    expectation_suite_name: raw_er_visits
+  - batch_request:
+      datasource_name: mediflow_pg
+      data_connector_name: default_inferred_data_connector_name
+      data_asset_name: raw.utilization
+    expectation_suite_name: raw_utilization
+  - batch_request:
+      datasource_name: mediflow_pg
+      data_connector_name: default_inferred_data_connector_name
+      data_asset_name: raw.dispatch
+    expectation_suite_name: raw_dispatch
+action_list:
+  - name: store_validation_result
+    action:
+      class_name: StoreValidationResultAction
+  - name: update_data_docs
+    action:
+      class_name: UpdateDataDocsAction

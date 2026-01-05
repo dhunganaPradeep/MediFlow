@@ -1,0 +1,14 @@
+{
+  "expectation_suite_name": "raw_er_visits",
+  "data_asset_type": null,
+  "expectations": [
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "source_record_id"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_unique", "kwargs": {"column": "source_record_id"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "arrival_ts"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_in_set", "kwargs": {"column": "triage_level", "value_set": [1, 2, 3, 4, 5]}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_between", "kwargs": {"column": "wait_minutes", "min_value": 0, "max_value": 2880, "mostly": 0.999}, "meta": {"notes": "48h hard cap; staging additionally clips at 24h"}},
+    {"expectation_type": "expect_column_values_to_match_regex", "kwargs": {"column": "patient_pseudo_id", "regex": "^[0-9a-f]{64}$"}, "meta": {}}
+  ],
+  "ge_cloud_id": null,
+  "meta": {"great_expectations_version": "0.18.16"}
+}

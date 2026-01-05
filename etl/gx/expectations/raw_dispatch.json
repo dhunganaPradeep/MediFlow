@@ -1,0 +1,16 @@
+{
+  "expectation_suite_name": "raw_dispatch",
+  "data_asset_type": null,
+  "expectations": [
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "source_record_id"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_unique", "kwargs": {"column": "source_record_id"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_not_be_null", "kwargs": {"column": "dispatch_ts"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_match_regex", "kwargs": {"column": "zone", "regex": "^Z[0-9]+$"}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_in_set", "kwargs": {"column": "priority", "value_set": [1, 2, 3]}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_between", "kwargs": {"column": "response_minutes", "min_value": 0, "max_value": 360, "mostly": 0.999}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_between", "kwargs": {"column": "temp_c", "min_value": -40, "max_value": 50}, "meta": {}},
+    {"expectation_type": "expect_column_values_to_be_between", "kwargs": {"column": "precip_mm", "min_value": 0, "max_value": 200}, "meta": {}}
+  ],
+  "ge_cloud_id": null,
+  "meta": {"great_expectations_version": "0.18.16"}
+}
