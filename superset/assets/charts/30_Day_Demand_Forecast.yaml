@@ -1,0 +1,23 @@
+cache_timeout: 3600
+dataset_uuid: c0ffee00-0000-4000-8000-000000000016
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: forecast_ts >= NOW()
+  groupby:
+  - entity
+  metrics:
+  - aggregate: AVG
+    column:
+      column_name: yhat
+    expressionType: SIMPLE
+    label: Forecast
+  row_limit: 10000
+  time_grain_sqla: PT1H
+  viz_type: echarts_timeseries_line
+  x_axis: forecast_ts
+slice_name: 30-Day Demand Forecast by Entity
+uuid: c0ffee00-0000-4000-8000-000000000109
+version: 1.0.0
+viz_type: echarts_timeseries_line

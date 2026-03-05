@@ -1,0 +1,19 @@
+cache_timeout: 3600
+dataset_uuid: c0ffee00-0000-4000-8000-000000000011
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: snapshot_ts >= NOW() - INTERVAL '12 months'
+  metric:
+    expressionType: SQL
+    label: Efficiency score
+    sqlExpression: AVG(occupancy_rate) * (1 - AVG(CASE WHEN occupancy_rate >= 0.95
+      THEN 1 ELSE 0 END))
+  subheader: High utilization penalised for overload hours (12-month window)
+  viz_type: big_number_total
+  y_axis_format: .2f
+slice_name: Resource Utilization Efficiency Score
+uuid: c0ffee00-0000-4000-8000-000000000111
+version: 1.0.0
+viz_type: big_number_total

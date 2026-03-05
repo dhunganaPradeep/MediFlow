@@ -1,0 +1,26 @@
+cache_timeout: 300
+dataset_uuid: c0ffee00-0000-4000-8000-000000000012
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: hour_bucket >= NOW() - INTERVAL '30 days'
+  metrics:
+  - aggregate: AVG
+    column:
+      column_name: avg_wait_minutes
+    expressionType: SIMPLE
+    label: Current wait (min)
+  - aggregate: AVG
+    column:
+      column_name: wait_7d_rolling_avg
+    expressionType: SIMPLE
+    label: 7-day average
+  row_limit: 1000
+  time_grain_sqla: PT1H
+  viz_type: echarts_timeseries_line
+  x_axis: hour_bucket
+slice_name: ER Wait Time vs 7-Day Rolling Average
+uuid: c0ffee00-0000-4000-8000-000000000106
+version: 1.0.0
+viz_type: echarts_timeseries_line

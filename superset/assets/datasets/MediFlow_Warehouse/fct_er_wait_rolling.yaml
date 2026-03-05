@@ -1,0 +1,16 @@
+table_name: fct_er_wait_rolling
+main_dttm_col: hour_bucket
+description: Hourly ER wait stats with 7-day rolling average
+schema: marts
+sql: null
+columns:
+  - {column_name: hour_bucket, type: TIMESTAMP, is_dttm: true}
+  - {column_name: hospital_key, type: BIGINT}
+  - {column_name: visit_count, type: BIGINT}
+  - {column_name: avg_wait_minutes, type: NUMERIC}
+  - {column_name: p90_wait_minutes, type: NUMERIC}
+  - {column_name: wait_7d_rolling_avg, type: NUMERIC}
+metrics: []
+uuid: c0ffee00-0000-4000-8000-000000000012
+version: 1.0.0
+database_uuid: c0ffee00-0000-4000-8000-000000000001

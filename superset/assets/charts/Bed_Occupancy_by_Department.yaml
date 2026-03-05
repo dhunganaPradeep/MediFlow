@@ -1,0 +1,26 @@
+cache_timeout: 60
+dataset_uuid: c0ffee00-0000-4000-8000-000000000011
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: snapshot_ts >= NOW() - INTERVAL '24 hours'
+  groupby:
+  - department_id
+  interval_bounds: 0.7,0.85,1
+  interval_color_indices: 3,2,1
+  max_val: 1
+  metric:
+    aggregate: AVG
+    column:
+      column_name: occupancy_rate
+    expressionType: SIMPLE
+    label: Occupancy
+  min_val: 0
+  row_limit: 10
+  value_formatter: .0%
+  viz_type: gauge_chart
+slice_name: Bed Occupancy by Department (last hour)
+uuid: c0ffee00-0000-4000-8000-000000000101
+version: 1.0.0
+viz_type: gauge_chart

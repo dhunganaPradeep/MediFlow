@@ -1,0 +1,21 @@
+cache_timeout: 300
+dataset_uuid: c0ffee00-0000-4000-8000-000000000016
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: model_name = 'prophet_occupancy' AND forecast_ts BETWEEN NOW()
+      AND NOW() + INTERVAL '24 hours'
+  metric:
+    aggregate: MAX
+    column:
+      column_name: yhat_upper
+    expressionType: SIMPLE
+    label: Max predicted occupancy (upper PI)
+  subheader: Above 0.90 = activate surge protocol
+  viz_type: big_number_total
+  y_axis_format: .0%
+slice_name: Predicted Surge - Next 4 Hours
+uuid: c0ffee00-0000-4000-8000-000000000108
+version: 1.0.0
+viz_type: big_number_total

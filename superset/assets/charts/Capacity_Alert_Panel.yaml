@@ -1,0 +1,26 @@
+cache_timeout: 60
+dataset_uuid: c0ffee00-0000-4000-8000-000000000011
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: is_capacity_alert = true AND snapshot_ts >= NOW() - INTERVAL '24
+      hours'
+  all_columns:
+  - snapshot_ts
+  - hospital_id
+  - department_id
+  - occupancy_rate
+  - patients_per_staff
+  conditional_formatting:
+  - colorScheme: '#FF0000'
+    column: occupancy_rate
+    operator: '>='
+    targetValue: 0.95
+  query_mode: raw
+  row_limit: 50
+  viz_type: table
+slice_name: Departments Above 85% Capacity
+uuid: c0ffee00-0000-4000-8000-000000000104
+version: 1.0.0
+viz_type: table

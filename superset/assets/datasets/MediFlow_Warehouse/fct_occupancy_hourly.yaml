@@ -1,0 +1,20 @@
+table_name: fct_occupancy_hourly
+main_dttm_col: snapshot_ts
+description: Hourly bed occupancy and staffing per hospital department
+schema: marts
+sql: null
+columns:
+  - {column_name: snapshot_ts, type: TIMESTAMP, is_dttm: true}
+  - {column_name: hospital_id, type: TEXT}
+  - {column_name: department_id, type: TEXT}
+  - {column_name: occupancy_rate, type: NUMERIC}
+  - {column_name: patients_per_staff, type: NUMERIC}
+  - {column_name: is_capacity_alert, type: BOOLEAN}
+  - {column_name: hour, type: INTEGER}
+  - {column_name: day_of_week, type: INTEGER}
+  - {column_name: season, type: TEXT}
+metrics:
+  - {metric_name: avg_occupancy, expression: AVG(occupancy_rate), verbose_name: Average occupancy}
+uuid: c0ffee00-0000-4000-8000-000000000011
+version: 1.0.0
+database_uuid: c0ffee00-0000-4000-8000-000000000001

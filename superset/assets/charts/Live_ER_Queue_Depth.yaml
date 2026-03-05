@@ -1,0 +1,19 @@
+cache_timeout: 60
+dataset_uuid: c0ffee00-0000-4000-8000-000000000012
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: hour_bucket >= NOW() - INTERVAL '1 day'
+  metric:
+    aggregate: SUM
+    column:
+      column_name: visit_count
+    expressionType: SIMPLE
+    label: Arrivals
+  subheader: ER arrivals in the last hour
+  viz_type: big_number_total
+slice_name: Live ER Queue Depth
+uuid: c0ffee00-0000-4000-8000-000000000105
+version: 1.0.0
+viz_type: big_number_total

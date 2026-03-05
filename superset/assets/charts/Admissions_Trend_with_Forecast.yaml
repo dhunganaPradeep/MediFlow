@@ -1,0 +1,32 @@
+cache_timeout: 300
+dataset_uuid: c0ffee00-0000-4000-8000-000000000014
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: forecast_ts >= NOW() - INTERVAL '7 days' AND model_name = 'prophet_occupancy'
+  metrics:
+  - aggregate: AVG
+    column:
+      column_name: actual
+    expressionType: SIMPLE
+    label: Actual
+  - aggregate: AVG
+    column:
+      column_name: yhat
+    expressionType: SIMPLE
+    label: Forecast
+  - aggregate: AVG
+    column:
+      column_name: yhat_upper
+    expressionType: SIMPLE
+    label: Upper 90% PI
+  rich_tooltip: true
+  row_limit: 1000
+  time_grain_sqla: PT1H
+  viz_type: echarts_timeseries_line
+  x_axis: forecast_ts
+slice_name: 24h Occupancy Trend with Forecast Overlay
+uuid: c0ffee00-0000-4000-8000-000000000102
+version: 1.0.0
+viz_type: echarts_timeseries_line

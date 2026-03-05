@@ -1,0 +1,15 @@
+table_name: fct_ambulance_by_zone_hour
+main_dttm_col: hour_bucket
+description: Hourly ambulance dispatches and response times per zone
+schema: marts
+sql: null
+columns:
+  - {column_name: hour_bucket, type: TIMESTAMP, is_dttm: true}
+  - {column_name: zone, type: TEXT}
+  - {column_name: dispatch_count, type: BIGINT}
+  - {column_name: avg_response_minutes, type: NUMERIC}
+  - {column_name: p90_response_minutes, type: NUMERIC}
+metrics: []
+uuid: c0ffee00-0000-4000-8000-000000000013
+version: 1.0.0
+database_uuid: c0ffee00-0000-4000-8000-000000000001

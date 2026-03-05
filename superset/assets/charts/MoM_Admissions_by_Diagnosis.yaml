@@ -1,0 +1,20 @@
+cache_timeout: 3600
+dataset_uuid: c0ffee00-0000-4000-8000-000000000015
+params:
+  groupby:
+  - chapter
+  metrics:
+  - aggregate: SUM
+    column:
+      column_name: admission_count
+    expressionType: SIMPLE
+    label: Admissions
+  row_limit: 5000
+  stack: true
+  time_grain_sqla: P1M
+  viz_type: echarts_timeseries_bar
+  x_axis: month
+slice_name: Month-over-Month Admissions by Diagnosis Chapter
+uuid: c0ffee00-0000-4000-8000-000000000112
+version: 1.0.0
+viz_type: echarts_timeseries_bar

@@ -1,0 +1,10 @@
+allow_csv_upload: true
+allow_file_upload: true
+allow_run_async: false
+cache_timeout: null
+database_name: MediFlow Warehouse
+expose_in_sqllab: true
+extra: {}
+sqlalchemy_uri: postgresql+psycopg2://mediflow:XXXXXXXXXX@postgres:5432/mediflow
+uuid: c0ffee00-0000-4000-8000-000000000001
+version: 1.0.0

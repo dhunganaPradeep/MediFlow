@@ -1,0 +1,105 @@
+certified_by: null
+css: ''
+dashboard_title: Strategic Planning
+description: 30-day horizon planning for the health planner (role - viewer)
+metadata:
+  color_scheme: supersetColors
+  expanded_slices: {}
+  refresh_frequency: 3600
+position:
+  CHART-109:
+    children: []
+    id: CHART-109
+    meta:
+      chartId: 109
+      height: 50
+      sliceName: 30-Day Demand Forecast by Entity
+      uuid: c0ffee00-0000-4000-8000-000000000109
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-1
+    type: CHART
+  CHART-110:
+    children: []
+    id: CHART-110
+    meta:
+      chartId: 110
+      height: 50
+      sliceName: Seasonal Capacity Gap by Department
+      uuid: c0ffee00-0000-4000-8000-000000000110
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-1
+    type: CHART
+  CHART-111:
+    children: []
+    id: CHART-111
+    meta:
+      chartId: 111
+      height: 40
+      sliceName: Resource Utilization Efficiency Score
+      uuid: c0ffee00-0000-4000-8000-000000000111
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-2
+    type: CHART
+  CHART-112:
+    children: []
+    id: CHART-112
+    meta:
+      chartId: 112
+      height: 50
+      sliceName: Month-over-Month Admissions by Diagnosis Chapter
+      uuid: c0ffee00-0000-4000-8000-000000000112
+      width: 8
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-2
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children:
+    - ROW-1
+    - ROW-2
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW-1:
+    children:
+    - CHART-109
+    - CHART-110
+    id: ROW-1
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-2:
+    children:
+    - CHART-111
+    - CHART-112
+    id: ROW-2
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+published: true
+slug: strategic-planning
+uuid: c0ffee00-0000-4000-8000-000000000203
+version: 1.0.0

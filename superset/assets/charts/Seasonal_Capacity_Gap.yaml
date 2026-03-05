@@ -1,0 +1,20 @@
+cache_timeout: 3600
+dataset_uuid: c0ffee00-0000-4000-8000-000000000011
+params:
+  groupby:
+  - department_id
+  metrics:
+  - aggregate: AVG
+    column:
+      column_name: occupancy_rate
+    expressionType: SIMPLE
+    label: Mean occupancy
+  row_limit: 5000
+  time_grain_sqla: P1M
+  viz_type: echarts_area
+  x_axis: snapshot_ts
+  y_axis_format: .0%
+slice_name: Seasonal Capacity Gap by Department
+uuid: c0ffee00-0000-4000-8000-000000000110
+version: 1.0.0
+viz_type: echarts_area

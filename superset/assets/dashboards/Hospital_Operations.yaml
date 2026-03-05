@@ -1,0 +1,105 @@
+certified_by: null
+css: ''
+dashboard_title: Hospital Operations
+description: Live capacity and staffing for hospital administrators (role - admin)
+metadata:
+  color_scheme: supersetColors
+  expanded_slices: {}
+  refresh_frequency: 600
+position:
+  CHART-101:
+    children: []
+    id: CHART-101
+    meta:
+      chartId: 101
+      height: 50
+      sliceName: Bed Occupancy by Department (last hour)
+      uuid: c0ffee00-0000-4000-8000-000000000101
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-1
+    type: CHART
+  CHART-102:
+    children: []
+    id: CHART-102
+    meta:
+      chartId: 102
+      height: 50
+      sliceName: 24h Occupancy Trend with Forecast Overlay
+      uuid: c0ffee00-0000-4000-8000-000000000102
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-1
+    type: CHART
+  CHART-103:
+    children: []
+    id: CHART-103
+    meta:
+      chartId: 103
+      height: 50
+      sliceName: Staff Shortage Risk Heatmap (patients per staff)
+      uuid: c0ffee00-0000-4000-8000-000000000103
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-2
+    type: CHART
+  CHART-104:
+    children: []
+    id: CHART-104
+    meta:
+      chartId: 104
+      height: 50
+      sliceName: Departments Above 85% Capacity
+      uuid: c0ffee00-0000-4000-8000-000000000104
+      width: 6
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-2
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children:
+    - ROW-1
+    - ROW-2
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW-1:
+    children:
+    - CHART-101
+    - CHART-102
+    id: ROW-1
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-2:
+    children:
+    - CHART-103
+    - CHART-104
+    id: ROW-2
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+published: true
+slug: hospital-operations
+uuid: c0ffee00-0000-4000-8000-000000000201
+version: 1.0.0

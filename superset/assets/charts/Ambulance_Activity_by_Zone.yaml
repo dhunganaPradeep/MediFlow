@@ -1,0 +1,24 @@
+cache_timeout: 300
+dataset_uuid: c0ffee00-0000-4000-8000-000000000013
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: hour_bucket >= NOW() - INTERVAL '7 days'
+  groupby:
+  - zone
+  metrics:
+  - aggregate: SUM
+    column:
+      column_name: dispatch_count
+    expressionType: SIMPLE
+    label: Dispatches
+  row_limit: 5000
+  stack: true
+  time_grain_sqla: PT1H
+  viz_type: echarts_timeseries_bar
+  x_axis: hour_bucket
+slice_name: Ambulance Activity and Response by Zone
+uuid: c0ffee00-0000-4000-8000-000000000107
+version: 1.0.0
+viz_type: echarts_timeseries_bar

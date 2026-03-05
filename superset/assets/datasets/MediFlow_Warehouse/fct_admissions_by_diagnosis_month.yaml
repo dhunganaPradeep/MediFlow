@@ -1,0 +1,16 @@
+table_name: fct_admissions_by_diagnosis_month
+main_dttm_col: month
+description: Monthly admissions by ICD-10 diagnosis
+schema: marts
+sql: null
+columns:
+  - {column_name: month, type: TIMESTAMP, is_dttm: true}
+  - {column_name: icd10_code, type: TEXT}
+  - {column_name: description, type: TEXT}
+  - {column_name: chapter, type: TEXT}
+  - {column_name: admission_count, type: BIGINT}
+  - {column_name: avg_los_hours, type: NUMERIC}
+metrics: []
+uuid: c0ffee00-0000-4000-8000-000000000015
+version: 1.0.0
+database_uuid: c0ffee00-0000-4000-8000-000000000001

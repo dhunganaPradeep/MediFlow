@@ -1,0 +1,22 @@
+cache_timeout: 3600
+dataset_uuid: c0ffee00-0000-4000-8000-000000000011
+params:
+  adhoc_filters:
+  - clause: WHERE
+    expressionType: SQL
+    sqlExpression: snapshot_ts >= NOW() - INTERVAL '28 days'
+  all_columns_x: hour
+  all_columns_y: day_of_week
+  linear_color_scheme: fire
+  metric:
+    aggregate: AVG
+    column:
+      column_name: patients_per_staff
+    expressionType: SIMPLE
+    label: Patients per staff
+  row_limit: 10000
+  viz_type: heatmap
+slice_name: Staff Shortage Risk Heatmap (patients per staff)
+uuid: c0ffee00-0000-4000-8000-000000000103
+version: 1.0.0
+viz_type: heatmap

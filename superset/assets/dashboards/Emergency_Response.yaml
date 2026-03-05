@@ -1,0 +1,105 @@
+certified_by: null
+css: ''
+dashboard_title: Emergency Response
+description: Live ER and ambulance operations for the ER coordinator (role - analyst)
+metadata:
+  color_scheme: supersetColors
+  expanded_slices: {}
+  refresh_frequency: 300
+position:
+  CHART-105:
+    children: []
+    id: CHART-105
+    meta:
+      chartId: 105
+      height: 40
+      sliceName: Live ER Queue Depth
+      uuid: c0ffee00-0000-4000-8000-000000000105
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-1
+    type: CHART
+  CHART-106:
+    children: []
+    id: CHART-106
+    meta:
+      chartId: 106
+      height: 50
+      sliceName: ER Wait Time vs 7-Day Rolling Average
+      uuid: c0ffee00-0000-4000-8000-000000000106
+      width: 8
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-1
+    type: CHART
+  CHART-107:
+    children: []
+    id: CHART-107
+    meta:
+      chartId: 107
+      height: 50
+      sliceName: Ambulance Activity and Response by Zone
+      uuid: c0ffee00-0000-4000-8000-000000000107
+      width: 8
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-2
+    type: CHART
+  CHART-108:
+    children: []
+    id: CHART-108
+    meta:
+      chartId: 108
+      height: 40
+      sliceName: Predicted Surge - Next 4 Hours
+      uuid: c0ffee00-0000-4000-8000-000000000108
+      width: 4
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    - ROW-2
+    type: CHART
+  DASHBOARD_VERSION_KEY: v2
+  GRID_ID:
+    children:
+    - ROW-1
+    - ROW-2
+    id: GRID_ID
+    parents:
+    - ROOT_ID
+    type: GRID
+  ROOT_ID:
+    children:
+    - GRID_ID
+    id: ROOT_ID
+    type: ROOT
+  ROW-1:
+    children:
+    - CHART-105
+    - CHART-106
+    id: ROW-1
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+  ROW-2:
+    children:
+    - CHART-107
+    - CHART-108
+    id: ROW-2
+    meta:
+      background: BACKGROUND_TRANSPARENT
+    parents:
+    - ROOT_ID
+    - GRID_ID
+    type: ROW
+published: true
+slug: emergency-response
+uuid: c0ffee00-0000-4000-8000-000000000202
+version: 1.0.0
