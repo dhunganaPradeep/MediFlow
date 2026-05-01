@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: warehouse
+    schema: warehouse
+    freshness:
+      warn_after: {count: 2, period: hour}
+      error_after: {count: 6, period: hour}
+    tables:
+      - name: fact_admissions
+        loaded_at_field: admit_ts
+      - name: fact_emergency_visits
+        loaded_at_field: arrival_ts
+      - name: fact_resource_utilization
+        loaded_at_field: snapshot_ts
+      - name: fact_ambulance_dispatch
+        loaded_at_field: dispatch_ts
+      - name: dim_hospital
+        freshness: null
+      - name: dim_department
+        freshness: null
+      - name: dim_time
+        freshness: null
+      - name: dim_diagnosis
+        freshness: null
+  - name: ops
+    schema: ops
+    tables:
+      - name: forecast_predictions

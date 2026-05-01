@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: stg_admissions
+    columns:
+      - name: admission_id
+        tests: [not_null]
+      - name: source_record_id
+        tests: [not_null]
+      - name: los_hours
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 8760
+  - name: stg_er_visits
+    columns:
+      - name: triage_level
+        tests:
+          - not_null
+          - accepted_values: {values: [1, 2, 3, 4, 5], quote: false}
+      - name: wait_minutes
+        tests: [not_null]
+  - name: stg_utilization
+    columns:
+      - name: beds_occupied
+        tests: [not_null]
+  - name: fct_occupancy_hourly
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns: [snapshot_ts, hospital_id, department_id]
+    columns:
+      - name: occupancy_rate
+        tests:
+          - not_null
+          - dbt_utils.accepted_range: {min_value: 0, max_value: 1}
+  - name: fct_er_wait_rolling
+    columns:
+      - name: avg_wait_minutes
+        tests: [not_null]
+  - name: fct_ambulance_by_zone_hour
+    columns:
+      - name: dispatch_count
+        tests: [not_null]

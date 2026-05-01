@@ -1,0 +1,19 @@
+name: mediflow
+version: "1.0.0"
+profile: mediflow
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+
+models:
+  mediflow:
+    staging:
+      +schema: staging
+      +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: ephemeral
+    marts:
+      +schema: marts
+      +materialized: incremental
+      +incremental_strategy: delete+insert
