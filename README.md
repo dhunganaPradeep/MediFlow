@@ -16,11 +16,14 @@ Forecasting bed occupancy, emergency wait times, and ambulance demand.
 
 ## Why this exists
 
-Hospitals routinely discover capacity problems when they are already in them: Monday-morning admission backlogs, 7 pm emergency surges, winter respiratory waves, and the staffing shortfalls that correlate with exactly those peaks. The data to anticipate all of this usually exists — fragmented across admission systems, ED logs, dispatch records, and rosters.
+Hospitals often find capacity problems only when they are already inside them. Monday morning admission backlogs. Evening emergency surges around 7 pm. Winter waves of respiratory cases. Staffing shortfalls that match those peaks.  
 
-MediFlow is an end-to-end data platform that turns those event streams into **operational foresight**: a dimensional warehouse, a validated ELT pipeline, three purpose-matched forecasting models, and dashboards that answer the questions an administrator, an ER coordinator, and a health planner actually ask — each behind role-based access control, on infrastructure that runs on a $10/month server.
+The data to see this early usually exist. It is fragmented across admission systems, ED logs, dispatch records, and rosters.  
 
-All patient data is synthetic, generated from explicit statistical processes (non-homogeneous Poisson arrivals, Gaussian-copula staffing correlation, seasonal epidemic curves) — and is nevertheless treated with full production privacy controls: HMAC pseudonymisation, column-level encryption, row-level security, and append-only audit logging. Privacy engineering is practised here, not postponed.
+MediFlow is an end to end data platform. It turns those event streams into operational foresight. It has a dimensional warehouse. A validated ELT pipeline. Three forecasting models that fit the purpose. Dashboards that answer the questions an administrator, an ER coordinator, and a health planner ask. All behind role based access control. On infrastructure that runs on a $10 per month server.  
+
+All patient data is synthetic. It is generated from statistical processes like non homogeneous Poisson arrivals, Gaussian copula staffing correlation, and seasonal epidemic curves. It is still treated with full production privacy controls. HMAC pseudonymisation. Column level encryption. Row level security. Append only audit logging.
+
 
 ## System architecture
 
