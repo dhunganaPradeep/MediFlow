@@ -113,10 +113,7 @@ make forecast
 
 ## Author
 
-**Pradip Dhungana**
-
-- GitHub: [github.com/dhunganaPradeep](https://github.com/dhunganaPradeep)
-- Website: [dhunganapradip.com.np](https://dhunganapradip.com.np)
+**[Pradip Dhungana](https://dhunganapradip.com.np)**
 
 ## License
 
