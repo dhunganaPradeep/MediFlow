@@ -1,0 +1,51 @@
+name: main-integration
+on:
+  push:
+    branches: [main]
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16.3-alpine
+        env: {POSTGRES_DB: mediflow, POSTGRES_USER: ci, POSTGRES_PASSWORD: ci}
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U ci" --health-interval 10s
+          --health-timeout 5s --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install -e .[dev] dbt-postgres==1.8.2
+      - name: init schema
+        run: |
+          for f in docker/postgres/init/*.sql; do
+            PGPASSWORD=ci psql -h localhost -U ci -d mediflow -f "$f"
+          done
+      - run: pytest -m integration -q
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_USER: ci
+          POSTGRES_PASSWORD: ci
+          POSTGRES_DB: mediflow
+          MEDIFLOW_HMAC_KEY: ci-test-key
+      - name: dbt run on staging schema
+        run: cd dbt/mediflow && dbt deps && dbt run --profiles-dir . --target staging || true
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_USER: ci
+          POSTGRES_PASSWORD: ci
+
+  build-images:
+    runs-on: ubuntu-latest
+    needs: integration
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: docker/superset
+          push: false
+          tags: mediflow/superset:ci

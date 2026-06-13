@@ -1,0 +1,6 @@
+hospital_id,name,region,bed_capacity,trauma_level
+H001,North Judithbury General Hospital,north,536,2
+H002,East Jill General Hospital,west,188,3
+H003,New Roberttown General Hospital,east,463,3
+H004,East Jessetown General Hospital,south,240,3
+H005,Lake Debra General Hospital,south,192,3

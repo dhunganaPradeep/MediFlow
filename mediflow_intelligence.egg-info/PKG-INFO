@@ -1,0 +1,26 @@
+Metadata-Version: 2.4
+Name: mediflow
+Version: 0.1.0
+Summary: Healthcare resource demand forecasting and BI platform
+Requires-Python: >=3.11
+Requires-Dist: numpy>=1.26
+Requires-Dist: pandas>=2.2
+Requires-Dist: scipy>=1.13
+Requires-Dist: faker>=25.0
+Requires-Dist: psycopg2-binary>=2.9
+Requires-Dist: sqlalchemy>=2.0
+Requires-Dist: duckdb>=1.0
+Requires-Dist: prophet>=1.1.5
+Requires-Dist: pmdarima>=2.0.4
+Requires-Dist: torch>=2.3
+Requires-Dist: hvac>=2.2
+Requires-Dist: requests>=2.32
+Requires-Dist: great-expectations<1.0,>=0.18
+Requires-Dist: holidays>=0.50
+Provides-Extra: dev
+Requires-Dist: pytest>=8.2; extra == "dev"
+Requires-Dist: pytest-cov>=5.0; extra == "dev"
+Requires-Dist: ruff>=0.4; extra == "dev"
+Requires-Dist: black>=24.4; extra == "dev"
+Requires-Dist: sqlfluff>=3.0; extra == "dev"
+Requires-Dist: detect-secrets>=1.5; extra == "dev"

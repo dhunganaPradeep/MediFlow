@@ -1,0 +1,42 @@
+name: pr-checks
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11', cache: pip}
+      - run: pip install ruff==0.4.10 black==24.4.2 pytest pandas numpy scipy faker holidays sqlalchemy
+      - run: ruff check .
+      - run: black --check .
+      - run: pytest -m unit -q
+        env: {MEDIFLOW_HMAC_KEY: ci-test-key}
+
+  dbt-compile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install dbt-postgres==1.8.2
+      - run: cd dbt/mediflow && dbt deps && dbt compile --profiles-dir .
+        env:
+          POSTGRES_USER: ci
+          POSTGRES_PASSWORD: ci
+          POSTGRES_HOST: localhost
+
+  trivy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aquasecurity/trivy-action@0.24.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          severity: HIGH,CRITICAL
+          exit-code: '1'
+          ignore-unfixed: true

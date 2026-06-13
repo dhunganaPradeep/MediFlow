@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+models_store/
+*.duckdb
+dbt/mediflow/target/
+dbt/mediflow/dbt_packages/
+logs/
+.secrets.baseline
