@@ -1,11 +1,16 @@
 # Architecture decisions
 
-## Data flow
-Generator/external pulls -> `raw` schema -> GE validation gate -> idempotent
-load into `warehouse` star schema (RLS, SCD2, partitioned) -> dbt builds
-`marts` -> DuckDB columnar copy for interactive slicing -> Superset; the same
-marts feed model training, and predictions land back in
-`ops.forecast_predictions` so dashboards overlay forecast vs actual.
+## Data Flow
+Generator / external pulls  
+→ `raw` schema  
+→ GE validation gate  
+→ idempotent load into `warehouse` star schema (RLS, SCD2, partitioned)  
+→ dbt builds `marts`  
+→ DuckDB columnar copy for interactive slicing  
+→ Superset dashboards (overlay forecast vs actual)  
+
+The same marts feed model training, and predictions land in `ops.forecast_predictions`.
+
 
 ## Batch over streaming
 Hospital operational decisions here run at hourly granularity; an hourly
