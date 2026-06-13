@@ -4,7 +4,7 @@
 
 **Healthcare resource demand forecasting and business intelligence platform**
 
-Forecasting bed occupancy, emergency wait times, and ambulance demand — from raw events to role-secured decision dashboards.
+Forecasting bed occupancy, emergency wait times, and ambulance demand.
 
 [![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)](.github/workflows)
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)](pyproject.toml)
