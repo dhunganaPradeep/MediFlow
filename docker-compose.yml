@@ -29,7 +29,7 @@ x-airflow-common: &airflow-common
 services:
   postgres:
     image: postgres:16.3-alpine
-    env_file: .env
+    env_file: .env 
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
